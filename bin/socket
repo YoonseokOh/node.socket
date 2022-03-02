@@ -89,7 +89,7 @@ function onListening() {
 }
 
 // upgrade http server to socket.io server
-const io = require('socket.io').listen(server);
+const io = require('socket.io')(server);
 
 // Socket setting
 io.sockets.on('connection', function(socket) {
