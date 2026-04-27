@@ -12,17 +12,17 @@
 
 "use strict";
 
+const path = require('path');
 const express = require('express');
 const router = express.Router();
+const clientIndex = path.join(__dirname, '../../dist/index.html');
 
-// Default - Get : Show main page
-router.get('/', function (req, res) {
-  res.render('index.hbs');
-});
-
-// Default - Get : Show main page
-router.get('/*', function (req, res) {
-  res.redirect('/');
+router.get(/.*/, function (req, res, next) {
+  res.sendFile(clientIndex, function (err) {
+    if (err) {
+      next(err);
+    }
+  });
 });
 
 module.exports = router;

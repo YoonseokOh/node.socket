@@ -89,20 +89,4 @@ function onListening() {
 }
 
 // upgrade http server to socket.io server
-const io = require('socket.io')(server);
-
-// Socket setting
-io.sockets.on('connection', function(socket) {
-  socket.emit('toclient', {
-    msg:'Welcome !'
-  });
-
-  socket.on('fromclient', function(data) {
-    socket.broadcast.emit('toclient', data); // 자신을 제외하고 다른 클라이언트에게 보냄.
-    socket.emit('toclient', data); // 해당 클라이언트에게만 보냄.
-    // io.sockets 전체소켓
-    // socket 연결된 소켓
-    // 귓속말 io.sockets(socket_id).emit('toclient', function(data) {});
-    console.log('Message from client :' + data.msg);
-  })
-});
+require('../socket-server')(server);

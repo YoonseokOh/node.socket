@@ -2,19 +2,29 @@
   "name": "yoonseok",
   "version": "1.0.0",
   "description": "",
-  "main": "bin/www",
+  "main": "bin/socket",
+  "scripts": {
+    "dev": "node ./scripts/dev-server.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node ./bin/socket",
+    "server": "node ./bin/socket"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.2",
-    "compression": "^1.7.4",
-    "config": "^3.3.7",
-    "cookie-parser": "^1.4.6",
-    "express": "^4.17.3",
-    "express-handlebars": "^6.0.2",
-    "express-minify": "^1.0.0",
-    "path": "^0.12.7",
-    "socket.io": "^4.4.1"
+    "body-parser": "^2.2.2",
+    "compression": "^1.8.1",
+    "config": "^4.4.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.10"
+  }
 }
